@@ -17,7 +17,7 @@
 
 
     <div class="container with-footer">
-
+        
     <div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="Verovio%20PAE%20Editor%20Verovio_files/carousel.js"></script>
@@ -223,6 +223,7 @@
         &lt;/mei&gt;
     </pre>
 </div>
+<button id="saveMeiButton">Save as MEI</button>
 </div>
 </div>
 </div>
@@ -484,6 +485,28 @@
 
         $("#incipit_01").highlightWithinTextarea({ highlight: onValidatePAE });
     });
+
+    // Function to trigger the download of the MEI file
+    function saveMeiAsFile() 
+    {
+        var meiContent = $("#mei_output").text();
+    
+        var blob = new Blob([meiContent], { type: "application/xml" });
+        var url = URL.createObjectURL(blob);
+    
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "MEI_File.mei"; // Change the filename as needed
+        document.body.appendChild(a);
+    
+        a.click();
+    
+        URL.revokeObjectURL(url);
+    }   
+
+    // Add a click event listener to the "Save as MEI" button
+    document.getElementById("saveMeiButton").addEventListener("click", saveMeiAsFile);
+
 </script>
 
 </div>
