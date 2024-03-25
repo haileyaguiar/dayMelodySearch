@@ -13,7 +13,7 @@
     <!--Scripts-->
     <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
     <script src="Verovio%20PAE%20Editor%20Verovio_files/jquery-3.6.0.min.js"></script>
-    <script src="Verovio%20PAE%20Editor%20Verovio_files/bootstrap.min.js"></script>
+
     </div>
 </head>
 
@@ -407,19 +407,19 @@
     function pe_incipit(destination_column, clef, keysig, timesig, incipit, target)
     {
         jquery_clef = clef.replace(/(\[|\])/g, '\\$1');
-        jquery_keysig = keysig.replace(/(\[|\])/g, '\\$1');
-        jquery_timesig = timesig.replace(/(\[|\])/g, '\\$1');
+        //jquery_keysig = keysig.replace(/(\[|\])/g, '\\$1');
+        //jquery_timesig = timesig.replace(/(\[|\])/g, '\\$1');
         jquery_incipit = incipit.replace(/(\[|\])/g, '\\$1');
 
         pae_clef = $('#' + jquery_clef).val();
-        pae_keysig =  $('#' + jquery_keysig).val();
-        pae_timesig = $('#' + jquery_timesig).val();
+        //pae_keysig =  $('#' + jquery_keysig).val();
+        //pae_timesig = $('#' + jquery_timesig).val();
         pae_incipit = $('#' + jquery_incipit).val();
 
         pae = "@clef:" + pae_clef + "\n";
-        pae = pae + "@keysig:" + pae_keysig + "\n";
+        //pae = pae + "@keysig:" + pae_keysig + "\n";
         pae = pae + "@key:\n";
-        pae = pae + "@timesig:" + pae_timesig + "\n";
+        //pae = pae + "@timesig:" + pae_timesig + "\n";
         pae = pae + "@data: " + pae_incipit + "\n";
         render_music(pae, 'pae');
 
@@ -486,7 +486,7 @@
             update_incipit();
         }
 
-        $("#incipit_01").highlightWithinTextarea({ highlight: onValidatePAE });
+        //$("#incipit_01").highlightWithinTextarea({ highlight: onValidatePAE });
     });
 
     // Function to trigger the download of the MEI file
